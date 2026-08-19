@@ -1,0 +1,65 @@
+{% if product.selected_or_first_available_variant.metafields.custom.customcode_price_display[0].value
+  or product.selected_or_first_available_variant.compare_at_price
+%}
+  {% assign compare_price = product.selected_or_first_available_variant.metafields.custom.customcode_price_display[0].value
+    | default: product.selected_or_first_available_variant.compare_at_price
+  %}
+  {% assign price = product.selected_or_first_available_variant.custom.customcode_price_display[1].value
+    | default: product.selected_or_first_available_variant.price
+  %}
+  {% assign sale_fraction = price | times: 1.0 | divided_by: compare_price %}
+  {% assign sale_percent = sale_fraction | times: 100 | round %}
+  {% assign sale_amount_off = 100 | minus: sale_percent %}
+{% endif %}
+
+<c-product-card>
+  <a href="{{ product.url }}" class="card-container">
+    <div class="image-container">
+      {{ product | image_url: width: 1900 | image_tag }}
+      {% if product.available == false %}
+        <div class="sale-badge">SOLD OUT</div>
+      {% elsif sale_amount_off > 0 %}
+        <div class="sale-badge">SALE {{ sale_amount_off }}% OFF</div>
+      {% endif %}
+    </div>
+    <div class="info-container">
+      <p>{{ product.title }}</p>
+      <div class="price-container">
+        <p class="compare-price">
+          <s>
+            {% if product.selected_or_first_available_variant.metafields.custom.customcode_price_display[0].value
+              or product.selected_or_first_available_variant.compare_at_price
+            %}
+              {{-
+                product.selected_or_first_available_variant.metafields.custom.customcode_price_display[0].value
+                | default: product.selected_or_first_available_variant.compare_at_price
+                | money
+              -}}
+            {% endif %}
+          </s>
+        </p>
+        <p class="final-price">
+          {{
+            product.selected_or_first_available_variant.custom.customcode_price_display[1].value
+            | default: product.selected_or_first_available_variant.price
+            | money
+          }}
+        </p>
+      </div>
+    </div>
+  </a>
+  <button
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    {% unless product.available %}
+      disabled
+    {% endunless %}
+    class="c-button"
+  >
+    {% if product.available %}
+      Add to cart
+    {% else %}
+      Sold out
+    {% endif %}
+    <div class="c-spinner c-hidden"></div>
+  </button>
+</c-product-card>

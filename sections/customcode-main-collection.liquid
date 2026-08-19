@@ -1,0 +1,63 @@
+{% style %}
+  c-main-collection[data-section-id="{{ section.id }}"] .inner-container .grid-container {
+    grid-template-columns: repeat({{ section.settings.m_grid_columns }}, 1fr);
+  }
+  @media screen and (min-width: 769px) {
+    c-main-collection[data-section-id="{{ section.id }}"] .inner-container .grid-container {
+      grid-template-columns: repeat({{ section.settings.d_grid_columns }}, 1fr);
+    }
+  }
+{% endstyle %}
+
+{% if section.settings.max_products %}
+  {% assign max_products = section.settings.max_products %}
+{% else %}
+  {% assign max_products = collection.products.size %}
+{% endif %}
+
+<c-main-collection data-section-id="{{ section.id }}" id="{{ section.settings.id }}">
+  <div class="inner-container">
+    <div class="grid-container">
+      {% for product in collection.products limit: max_products %}
+        {% render 'customcode-product-card', product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</c-main-collection>
+
+{% schema %}
+{
+  "name": "C Main Collection",
+  "enabled_on": { "templates": ["collection"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "id",
+      "label": "Section ID"
+    },
+    {
+      "type": "number",
+      "id": "m_grid_columns",
+      "label": "M Grid Columns",
+      "default": 2
+    },
+    {
+      "type": "number",
+      "id": "d_grid_columns",
+      "label": "D Grid Columns",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "max_products",
+      "label": "Maximum Products to Show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Main Collection",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
