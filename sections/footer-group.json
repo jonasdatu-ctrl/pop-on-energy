@@ -101,7 +101,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>GET IN TOUCH</h4><p><a href=\"https://poponveneers.com/pages/contact-us\" title=\"https://poponveneers.com/pages/contact-us\">Contact Us</a></p><p>Email: <a href=\"mailto:team@poponveneers.com\" title=\"mailto:team@poponveneers.com\">team@poponshop.com<br/></a>Phone: <a href=\"tel:+12124616302\" title=\"tel:+12124616302\">212-461-6302<br/></a>SMS Text: <a href=\"#sms76766\" title=\"#sms76766\">76766 </a>(POPON)</p><p>Extended hours! <br/>9:00am - 9:00pm EST. <br/>Mon - Fri <br/>Excluding Federal Holidays</p>",
+                "text": "<h4>GET IN TOUCH</h4><p><a href=\"https://poponveneers.com/pages/contact-us\" title=\"https://poponveneers.com/pages/contact-us\">Contact Us</a></p><p>Email: <a href=\"mailto:team@poponveneers.com\" title=\"mailto:team@poponveneers.com\">team@poponveneers.com<br/></a>Phone: <a href=\"tel:+12124616302\" title=\"tel:+12124616302\">212-461-6302<br/></a>SMS Text: <a href=\"#sms76766\" title=\"#sms76766\">76766 </a>(POPON)</p><p>Extended hours! <br/>9:00am - 9:00pm EST. <br/>Mon - Fri <br/>Excluding Federal Holidays</p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
