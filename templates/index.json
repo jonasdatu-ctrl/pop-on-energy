@@ -264,14 +264,16 @@
           "settings": {
             "image_one": "shopify://shop_images/818002e5-7c35-4a5b-b570-802c34f337fe_c56b8c32-6dd5-47a1-bc19-690b761797cc.png",
             "link_one": "https://poponenergy.com/products/fresh-foam",
-            "link_two": "https://poponveneers.com/products/clean-and-go-case"
+            "image_two": "shopify://shop_images/Z_37f6b92a-5056-4183-8e9a-f9a5a6bbd6fa.png",
+            "link_two": "https://poponenergy.com/products/whitening-strips"
           }
         },
         "two_grid_TLNkrX": {
           "type": "two_grid",
+          "disabled": true,
           "settings": {
             "image_one": "shopify://shop_images/Z.png",
-            "link_one": "https://poponveneers.com/products/whitening-strips",
+            "link_one": "https://poponenergy.com/products/whitening-strips",
             "image_two": "shopify://shop_images/359a6ebf-b71c-4eed-a2f4-c4cc84e49cae_d634009a-d2c3-4cd0-b0f6-4e4da3579271.png",
             "link_two": "https://poponveneers.com/collections/pop-on-bling"
           }
